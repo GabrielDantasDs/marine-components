@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --ifm-color-primary: #4a90d9;
+  --ifm-color-primary-dark: #3578c4;
+  --ifm-color-primary-darker: #2e6bb5;
+  --ifm-color-primary-darkest: #265795;
+  --ifm-color-primary-light: #6aa4e1;
+  --ifm-color-primary-lighter: #7db1e6;
+  --ifm-color-primary-lightest: #a3c8ee;
+  --ifm-code-font-size: 95%;
+  --ifm-font-family-base: 'Lexend', system-ui, sans-serif;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #6aa4e1;
+  --ifm-color-primary-dark: #4f92d9;
+  --ifm-color-primary-darker: #3f86d4;
+  --ifm-color-primary-darkest: #2e6fc0;
+  --ifm-color-primary-light: #85b6e9;
+  --ifm-color-primary-lighter: #95c0ed;
+  --ifm-color-primary-lightest: #bdd7f4;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
