@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom"
-import { render, fireEvent, act } from "@testing-library/react"
+import { render, fireEvent } from "@testing-library/react"
 import ToastProvider, { useToast } from "./index"
 import React from "react"
 
@@ -34,7 +34,7 @@ describe("Toast component", () => {
   });
 
   it("dismisses on close click", () => {
-    const { getByText, getByLabelText, queryByText } = render(
+    const { getByText, getByLabelText } = render(
       <ToastProvider>
         <TestTrigger duration={0} />
       </ToastProvider>
@@ -42,8 +42,6 @@ describe("Toast component", () => {
     fireEvent.click(getByText("Trigger"));
     expect(getByText("Test Toast")).toBeInTheDocument();
     fireEvent.click(getByLabelText("Dismiss"));
-    // After animation (200ms)
-    act(() => { jest.advanceTimersByTime?.(300) });
   });
 
   it("renders action button", () => {

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react"
 import type { CheckboxProps } from "./types"
-import { Wrapper, HiddenInput, Box, Label } from "./styled"
+import { Wrapper, Box, Label } from "./styled"
 
 const CheckIcon = () => (
   <svg viewBox="0 0 14 14" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -38,8 +38,6 @@ function Checkbox({
   function handleChange() {
     if (disabled) return
     const next = !isChecked
-    console.log("isChecked", isChecked);
-    console.log("next", next);
     if (!controlled) setInternalChecked(next)
     onChange?.(next)
   }

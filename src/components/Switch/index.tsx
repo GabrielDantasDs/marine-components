@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import type { SwitchProps } from "./types"
-import { Wrapper, HiddenInput, Track, Thumb, Label } from "./styled"
+import { Wrapper, Track, Thumb, Label } from "./styled"
 
 function Switch({
   label,

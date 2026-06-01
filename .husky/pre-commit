@@ -1,5 +1,5 @@
-#Run test before commit 
-npm test
+#Run test before commit
+npx jest --verbose
 
 # Run lint before commit
 npm run lint

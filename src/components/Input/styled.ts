@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import type { InputRadius, InputShrink } from "./types"
+import type { InputRadius } from "./types"
 
 const radiusMap: Record<InputRadius, string> = {
   regular: "8px",

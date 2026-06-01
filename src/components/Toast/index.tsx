@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useRef, createContext, useContext, useEffect } from "react"
 import { createPortal } from "react-dom"
-import type { ToastProviderProps, ToastOptions, Toast as ToastType, ToastPosition } from "./types"
+import type { ToastProviderProps, ToastOptions, Toast as ToastType } from "./types"
 import {
   ToastContainer,
   ToastItem,
