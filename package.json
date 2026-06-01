@@ -10,8 +10,7 @@
 	],
 	"scripts": {
 		"build": "rollup -c",
-		"build:types": "rollup -c rollup.config.types.js",
-		"prepublishOnly": "npm run build && npm run build:types",
+		"prepublishOnly": "npm run build",
 		"dev": "rollup -c -w",
 		"test": "jest --watchAll --verbose",
 		"storybook": "storybook dev -p 6006",
