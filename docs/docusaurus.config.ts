@@ -11,7 +11,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://gabrieldantas.github.io',
+  url: 'https://gabrieldantasds.github.io',
   baseUrl: '/marine-components/',
 
   organizationName: 'gabrieldantas',
