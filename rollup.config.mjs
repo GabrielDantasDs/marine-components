@@ -15,6 +15,7 @@ export default [
   // CJS build
   {
     input: 'src/index.ts',
+    external: ['react', 'react-dom', 'styled-components'],
     output: {
       file: 'dist/cjs/index.js',
       format: 'cjs',
@@ -32,6 +33,7 @@ export default [
   // ESM build
   {
     input: 'src/index.ts',
+    external: ['react', 'react-dom', 'styled-components'],
     output: {
       file: 'dist/esm/index.js',
       format: 'esm',
