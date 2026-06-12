@@ -59,8 +59,13 @@ export const Circle = styled.span<{
   height: ${({ $size }) => sizeMap[$size].outer}px;
   border-radius: 50%;
   border: 2px solid ${({ $checked, $color }) => $checked ? colorMap[$color] : "#c0c0c0"};
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease-out;
   flex-shrink: 0;
+
+  ${HiddenInput}:focus-visible + & {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
 
   &::after {
     content: "";
@@ -69,8 +74,13 @@ export const Circle = styled.span<{
     border-radius: 50%;
     background-color: ${({ $color }) => colorMap[$color]};
     transform: scale(${({ $checked }) => $checked ? 1 : 0});
-    transition: transform 0.15s ease;
-    ${({ $checked }) => $checked && css`animation: ${pop} 0.2s ease;`}
+    transition: transform 0.15s ease-out;
+    ${({ $checked }) => $checked && css`animation: ${pop} 0.2s ease-out;`}
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &::after { transition: none; animation: none; }
   }
 `
 

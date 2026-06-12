@@ -39,6 +39,10 @@ export const SvgWrapper = styled.svg<{ $size: SpinnerSize }>`
   width: ${({ $size }) => sizeMap[$size].circle}px;
   height: ${({ $size }) => sizeMap[$size].circle}px;
   animation: ${rotate} 1.4s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: 3s;
+  }
 `
 
 export const TrackCircle = styled.circle`

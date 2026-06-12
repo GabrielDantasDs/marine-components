@@ -32,6 +32,10 @@ export const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1200;
   animation: ${fadeIn} 0.2s ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 `
 
 function panelPosition(placement: DrawerPlacement) {
@@ -78,6 +82,10 @@ export const Panel = styled.div<{
 
   ${({ $placement }) => panelPosition($placement)}
   ${({ $placement, $size }) => panelDimension($placement, $size)}
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 `
 
 export const Header = styled.div`
@@ -113,19 +121,28 @@ export const CloseButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   border: none;
   background: none;
   cursor: pointer;
   border-radius: 6px;
   color: #6b7280;
   flex-shrink: 0;
-  margin-top: -2px;
+  transition: background-color 0.15s ease-out, color 0.15s ease-out;
 
   &:hover {
     background-color: #f0f0f0;
     color: #1a1a1a;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `
 

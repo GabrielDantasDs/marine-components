@@ -56,12 +56,20 @@ export const BadgeElement = styled.span<{
   background-color: ${({ $color }) => colorMap[$color]};
   animation: ${pop} 0.25s ease-out;
 
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+
   ${({ $invisible }) =>
     $invisible &&
     css`
       transform: scale(0) !important;
       opacity: 0;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     `}
 
   ${({ $dot, $size }) =>

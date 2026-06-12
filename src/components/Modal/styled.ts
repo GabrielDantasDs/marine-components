@@ -37,7 +37,11 @@ export const Overlay = styled.div`
   justify-content: center;
   z-index: 2000;
   padding: 16px;
-  animation: ${fadeIn} 0.15s ease;
+  animation: ${fadeIn} 0.15s ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 `
 
 export const Container = styled.div<{
@@ -54,6 +58,10 @@ export const Container = styled.div<{
   max-height: calc(100vh - 32px);
   animation: ${slideUp} 0.2s ease-out;
   ${({ $size }) => sizeMap[$size]}
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 `
 
 export const Header = styled.div`
@@ -98,20 +106,29 @@ export const CloseButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
   border: none;
   background: transparent;
   color: #8a8a8a;
   cursor: pointer;
   flex-shrink: 0;
-  transition: all 0.12s ease;
+  transition: background-color 0.15s ease-out, color 0.15s ease-out;
   font-size: 1.1rem;
 
   &:hover {
     background-color: #f5f5f5;
     color: #4a4a4a;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `
 

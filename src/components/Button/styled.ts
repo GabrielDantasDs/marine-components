@@ -79,6 +79,11 @@ export const StyledButton = styled.button<{
   ${({ $size }) => sizes[$size]}
   ${({ $variant, $color }) => getVariantStyles($variant, $color)}
 
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -87,6 +92,11 @@ export const StyledButton = styled.button<{
 
   &:active:not(:disabled) {
     transform: scale(0.97);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:active:not(:disabled) { transform: none; }
   }
 `
 

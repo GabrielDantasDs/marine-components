@@ -53,7 +53,12 @@ export const ToastItem = styled.div<{
   border-radius: 10px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   pointer-events: all;
-  animation: ${({ $exiting }) => $exiting ? slideOut : slideIn} 0.2s ease forwards;
+  animation: ${({ $exiting }) => $exiting ? slideOut : slideIn} 0.2s ease-out forwards;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: ${({ $exiting }) => $exiting ? 0 : 1};
+  }
 `
 
 export const ToastIcon = styled.span<{ $type: ToastType }>`
@@ -96,14 +101,25 @@ export const ToastClose = styled.button`
   cursor: pointer;
   color: #8a8a8a;
   font-size: 0.85rem;
-  padding: 2px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
   border-radius: 4px;
   flex-shrink: 0;
-  transition: all 0.1s ease;
+  transition: color 0.15s ease-out, background-color 0.15s ease-out;
 
   &:hover {
     color: #4a4a4a;
     background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `
 

@@ -40,10 +40,20 @@ export const Link = styled.a`
   border-radius: 4px;
   padding: 2px 4px;
   margin: -2px -4px;
+  transition: background-color 0.15s ease-out;
 
   &:hover {
     text-decoration: underline;
     background-color: rgba(74, 144, 217, 0.06);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `
 
@@ -68,9 +78,19 @@ export const Ellipsis = styled.button`
   margin: -2px -4px;
   border-radius: 4px;
   letter-spacing: 1px;
+  transition: background-color 0.15s ease-out;
 
   &:hover {
     background-color: rgba(74, 144, 217, 0.06);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `
 

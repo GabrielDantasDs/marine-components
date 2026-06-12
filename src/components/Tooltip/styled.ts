@@ -114,6 +114,10 @@ export const Bubble = styled.div<{
 
   animation: ${fadeIn} 0.15s ease-out;
 
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+
   ${({ $placement }) => placementMap[$placement]}
 `
 

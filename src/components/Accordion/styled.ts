@@ -54,10 +54,19 @@ export const Header = styled.button<{ $open: boolean }>`
   background-color: ${({ $open }) => $open ? "#f9fafb" : "transparent"};
   cursor: pointer;
   text-align: left;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease-out;
 
   &:hover {
     background-color: #f5f7fa;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: -2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `
 
@@ -81,15 +90,23 @@ export const Arrow = styled.span<{ $open: boolean }>`
   align-items: center;
   color: #8a8a8a;
   font-size: 0.75rem;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease-out;
   transform: rotate(${({ $open }) => $open ? "180deg" : "0deg"});
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 `
 
 export const Content = styled.div<{ $open: boolean }>`
   overflow: hidden;
-  transition: max-height 0.25s ease, opacity 0.2s ease;
+  transition: max-height 0.25s ease-out, opacity 0.2s ease-out;
   max-height: ${({ $open }) => $open ? "1000px" : "0"};
   opacity: ${({ $open }) => $open ? 1 : 0};
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 `
 
 export const ContentInner = styled.div`

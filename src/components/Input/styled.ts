@@ -64,7 +64,7 @@ export const InputContainer = styled.div<{
     $hasError ? "#e05252" : $focused ? "#4a90d9" : "#e0e0e0"};
   border-radius: ${({ $radius }) => radiusMap[$radius]};
   padding: 10px 14px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out;
   box-shadow: ${({ $focused, $hasError }) =>
     $focused
       ? $hasError
@@ -77,6 +77,10 @@ export const InputContainer = styled.div<{
     cursor: not-allowed;
     opacity: 0.6;
   `}
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 `
 
 export const StyledInput = styled.input`
@@ -128,20 +132,33 @@ export const Prefix = styled.span`
 export const ToggleButton = styled.button`
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background: none;
   border: none;
   cursor: pointer;
   color: #8a8a8a;
-  padding: 0;
+  padding: 4px;
   font-size: 1rem;
   flex-shrink: 0;
+  border-radius: 4px;
+  transition: color 0.15s ease-out;
 
   &:hover { color: #4a4a4a; }
+
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 `
 
 export const HelperText = styled.span<{ $isError: boolean }>`
   font-size: 0.75rem;
   color: ${({ $isError }) => $isError ? "#e05252" : "#8a8a8a"};
+  line-height: 1.4;
 `
 
 export const AutocompleteDropdown = styled.ul`

@@ -211,7 +211,7 @@ function Input({
         )}
       </AutocompleteWrapper>
       {(error || helperText) && (
-        <HelperText $isError={!!error}>{error ?? helperText}</HelperText>
+        <HelperText $isError={!!error} role={error ? "alert" : undefined} aria-live={error ? "polite" : undefined}>{error ?? helperText}</HelperText>
       )}
     </Wrapper>
   )

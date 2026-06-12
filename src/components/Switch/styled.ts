@@ -47,8 +47,17 @@ export const Track = styled.span<{
   height: ${({ $size }) => sizeMap[$size].track.h}px;
   border-radius: ${({ $size }) => sizeMap[$size].track.h}px;
   background-color: ${({ $checked, $color }) => $checked ? colorMap[$color] : "#d0d0d0"};
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease-out;
   flex-shrink: 0;
+
+  ${HiddenInput}:focus-visible + & {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 `
 
 export const Thumb = styled.span<{
@@ -61,10 +70,14 @@ export const Thumb = styled.span<{
   border-radius: 50%;
   background-color: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease-out;
   left: 2px;
   transform: translateX(${({ $checked, $size }) =>
     $checked ? `${sizeMap[$size].track.w - sizeMap[$size].thumb - 4}px` : "0"});
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 `
 
 export const Label = styled.span<{ $size: SwitchSize }>`
