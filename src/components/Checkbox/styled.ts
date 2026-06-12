@@ -54,16 +54,26 @@ export const Box = styled.span<{
   border-radius: 5px;
   border: 2px solid ${({ $checked, $color }) => $checked ? colorMap[$color] : "#c0c0c0"};
   background-color: ${({ $checked, $color }) => $checked ? colorMap[$color] : "transparent"};
-  transition: all 0.15s ease;
+  transition: all 0.15s ease-out;
   flex-shrink: 0;
 
   ${({ $checked }) => $checked && css`
-    animation: ${pop} 0.2s ease;
+    animation: ${pop} 0.2s ease-out;
   `}
+
+  ${HiddenInput}:focus-visible + & {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
 
   svg {
     width: ${({ $size }) => sizeMap[$size].icon}px;
     height: ${({ $size }) => sizeMap[$size].icon}px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    animation: none;
   }
 `
 

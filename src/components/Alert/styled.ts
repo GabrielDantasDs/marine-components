@@ -90,6 +90,7 @@ export const ActionButton = styled.button<{ $type: AlertType; $variant: AlertVar
   border-radius: 4px;
   text-decoration: underline;
   text-underline-offset: 2px;
+  transition: opacity 0.15s ease-out;
 
   color: ${({ $variant, $type }) =>
     $variant === "filled" ? "#ffffff" : palette[$type].dark};
@@ -97,26 +98,45 @@ export const ActionButton = styled.button<{ $type: AlertType; $variant: AlertVar
   &:hover {
     opacity: 0.8;
   }
+
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 `
 
 export const CloseButton = styled.button<{ $variant: AlertVariant; $type: AlertType }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border: none;
   background: none;
   cursor: pointer;
   border-radius: 4px;
   padding: 0;
   flex-shrink: 0;
+  transition: background-color 0.15s ease-out;
 
   color: ${({ $variant, $type }) =>
     $variant === "filled" ? "rgba(255,255,255,0.85)" : palette[$type].dark};
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.06);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `
 
@@ -175,8 +195,8 @@ export const BannerClose = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border: none;
   background: none;
   cursor: pointer;
@@ -184,8 +204,18 @@ export const BannerClose = styled.button`
   padding: 0;
   color: rgba(255, 255, 255, 0.85);
   flex-shrink: 0;
+  transition: background-color 0.15s ease-out;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `

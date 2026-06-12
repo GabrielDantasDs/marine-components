@@ -88,9 +88,18 @@ export const PageButton = styled.button<{
         : css`background-color: #f0f0f0;`)}
   }
 
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
   &:disabled {
     opacity: 0.4;
     cursor: not-allowed;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `
 
@@ -116,8 +125,17 @@ export const ArrowButton = styled.button<{
     color: #1a1a1a;
   }
 
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
   &:disabled {
     opacity: 0.3;
     cursor: not-allowed;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `

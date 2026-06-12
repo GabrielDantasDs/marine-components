@@ -81,6 +81,16 @@ export const ChipRoot = styled.span<{
       cursor: not-allowed;
       pointer-events: none;
     `}
+
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:active { transform: none; }
+  }
 `
 
 export const StartIconWrapper = styled.span<{ $size: ChipSize }>`
@@ -113,8 +123,8 @@ export const DeleteButton = styled.button<{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border: none;
   background: none;
   padding: 0;
@@ -124,10 +134,19 @@ export const DeleteButton = styled.button<{
   flex-shrink: 0;
   color: ${({ $variant }) => ($variant === "filled" ? "rgba(255,255,255,0.75)" : "currentColor")};
   opacity: 0.7;
-  transition: opacity 0.15s ease, background-color 0.15s ease;
+  transition: opacity 0.15s ease-out, background-color 0.15s ease-out;
 
   &:hover {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 1px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
   }
 `

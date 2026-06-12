@@ -52,3 +52,15 @@ npm run dev
 - Tests import `@testing-library/jest-dom` for DOM matchers
 - ESLint flat config (`eslint.config.mts`)
 - Husky manages git hooks
+
+## Available Skills
+
+- `/code-review` — Review the current diff for correctness bugs (low/medium/high effort levels). Use `--comment` to post findings as inline PR comments.
+- `/simplify` — Review changed code for reuse, simplification, efficiency, and altitude cleanups, then apply fixes. Quality only — does not hunt for bugs.
+- `/verify` — Verify that a code change actually works by running the app and observing behavior. Use to confirm a fix, test a feature, or validate before pushing.
+- `/run` — Launch and drive the project's app to see a change working. Use to start Storybook, confirm a change in the real app, or take screenshots.
+- `/review` — Review a pull request.
+- `/security-review` — Complete a security review of pending changes on the current branch.
+- `/init` — Initialize or update the CLAUDE.md file with codebase documentation.
+- `/schedule` — Create or update a scheduled task that runs automatically (e.g., "every day", "remind me in an hour").
+- `/ui-ux-pro-max` — UI/UX design intelligence. Use when designing new pages, creating/refactoring components, choosing colors/typography/spacing, reviewing UI for accessibility or visual consistency, or implementing animations. Includes 50+ styles, 161 color palettes, 57 font pairings, 99 UX guidelines, and 25 chart types. See `SKILL.md` for full reference and search commands.

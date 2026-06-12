@@ -123,6 +123,16 @@ export const TabButton = styled.button<{
     cursor: not-allowed;
     pointer-events: none;
   `}
+
+  &:focus-visible {
+    outline: 2px solid #4a90d9;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &::after { transition: none; }
+  }
 `
 
 export const TabIcon = styled.span`

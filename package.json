@@ -34,7 +34,7 @@
 			"js",
 			"jsx"
 		],
-		"moduleNameMappper": {
+		"moduleNameMapper": {
 			"styled-components": "<rootDir>/node_modules/styled-components"
 		}
 	},
